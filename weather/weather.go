@@ -106,16 +106,16 @@ func (wt *weather) getWeather(w http.ResponseWriter, r *http.Request) {
 		url = "http://api.weatherunlocked.com/api/current/"
 		url += strconv.FormatFloat(wt.Out.Lat, 'f', -1, 64) + ","
 		url += strconv.FormatFloat(wt.Out.Lon, 'f', -1, 64)
-		url += "?app_id=" + WEATHERUNLOCKED_APPID
-		url += "&app_key=" + WEATHERUNLOCKED_KEY
+		url += "?app_id=" + "6003d9f1";
+		url += "&app_key=" + "09e606190f9e887637b79f093d04e1b1";
 		w.Header().Set("Accept", "application/json")
 	} else if source == 2 {
 		url = "https://api.openweathermap.org/data/2.5/weather?"
 		url += "q=" + wt.Out.City
-		url += "&APPID=" + OPENWEATHER_KEY
+		url += "&APPID=" + "8dd2eafe24be5bf127b4490c618fb4fe";
 	} else if source == 3 {
 		url = "https://api.weatherapi.com/v1/current.json"
-		url += "?key=" + WEATHERAPI_KEY
+		url += "?key=" + "94835e2f4bcb478196612150231009";
 		url += "&q=" + wt.Out.City + "&aqui=no"
 	}
 	resp, err := http.Get(url)
